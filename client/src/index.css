@@ -1,0 +1,89 @@
+body{
+  background: rgb(38, 41, 65);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  font-size: 20pt;
+}
+
+.message-def{
+  padding: 10px;
+  border-radius: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 20px;
+}
+
+.message-self{
+  margin-left: auto; 
+  margin-right: 0;
+  background: #4c70dd;
+}
+
+.message{
+  background: #2c375b;
+  margin-right: auto;
+}
+
+.navbar{
+  background: #1d2138;
+  position: sticky;
+  top: 0;
+}
+
+.chattingperson{
+  background: #3d4677;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+.ptchats{
+  margin-right: 10px;
+  margin-bottom: 30px;
+  padding-right: 20px;
+}
+
+.chatbox{
+  background: #3d4677;
+  padding: 25px;
+  border-radius: 25px;
+  margin-top: -50px;
+  margin-left: 40px;
+}
+
+.info{
+  margin-left: 30px;
+  color: rgb(164, 199, 245);
+}
+
+.scroll{
+  overflow-y: scroll;
+  max-height: calc(100vh - 440px);
+  display: flex;
+  flex-direction: column-reverse;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scroll::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.sendbtn{
+  border-radius: 25px;
+  padding: 7px;
+  padding-left: 22px;
+  padding-right: 22px;
+  border-color: #ffffff;
+  border-width: 3px;
+  border-style: solid;
+  background-color: royalblue;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+h3{
+  margin-bottom: 20px;
+}
