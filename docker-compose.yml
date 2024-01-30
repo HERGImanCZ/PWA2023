@@ -1,0 +1,14 @@
+version: '3'
+services:
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+  socket:
+    build: ./socket
+    ports:
+      - "3000:3000"
+  client:
+    build: ./client
+    ports:
+      - "5173:5173"
