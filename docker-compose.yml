@@ -1,14 +1,20 @@
 version: '3'
 services:
   server:
+    image: weap/srver
     build: ./server
     ports:
       - "5000:5000"
   socket:
+    image: weap/socket
     build: ./socket
     ports:
       - "3000:3000"
   client:
+    image: weap/client
     build: ./client
     ports:
       - "5173:5173"
+#    volumes:
+#      - .:/usr/src/app
+#      - /usr/src/app/node_modules

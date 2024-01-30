@@ -1,38 +1,17 @@
-# syntax=docker/dockerfile:1
+FROM node:14
 
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/go/dockerfile-reference/
+# set working directory
+WORKDIR /app
 
-ARG NODE_VERSION=20.9.0
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-FROM node:${NODE_VERSION}-alpine
+# install app dependencies
+COPY package.json .
+COPY package-lock.json .
+RUN npm install --silent
 
-# Use production node environment by default.
-ENV NODE_ENV production
-
-
-WORKDIR /usr/src/app
-
-
-
-
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.npm to speed up subsequent builds.
-# Leverage a bind mounts to package.json and package-lock.json to avoid having to copy them into
-# into this layer.
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
-
-
-RUN mkdir -p /usr/src/app/node_modules/.cache
-RUN chmod -R 777 /usr/src/app/node_modules/.cache
-# Run the application as a non-root user.
-USER node
-
-# Copy the rest of the source files into the image.
+# copy source code
 COPY . .
 
 # Expose the port that the application listens on.
